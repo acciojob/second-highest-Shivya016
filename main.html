@@ -1,32 +1,45 @@
 <!DOCTYPE html>
-
 <html>
 
 <head>
 	<link rel="stylesheet" href="styles.css">
 </head>
 
-<body>	
+<body>
 	<script>
+		// Function to find the second highest number in an array
 		function secondHighest(arr) {
-			//Write your code here
-			
+			// Convert all elements to numbers
+			arr = arr.map(Number);
+
+			// Sort the array in descending order
+			arr.sort(function (a, b) {
+				return b - a;
+			});
+
+			// Find the second unique highest number
+			let highest = arr[0];
+			for (let i = 1; i < arr.length; i++) {
+				if (arr[i] < highest) {
+					return arr[i];
+				}
+			}
+			return null; // If no second highest exists
 		}
 
 		function Main() {
 			var n = prompt("Enter the number of elements");
 			var arr = [];
 			for (var i = 0; i < n; i++) {
-				arr[i] = prompt("Enter element " + (i+1));
+				arr[i] = prompt("Enter element " + (i + 1));
 			}
 			alert(secondHighest(arr));
 		}
 		Main();
 	</script>
 
-    <script type="text/javascript" src="./script.js">
-</script>
-
+	<!-- Corrected the closing script tag -->
+	<script type="text/javascript" src="./script.js"></script>
 </body>
 
 </html>
